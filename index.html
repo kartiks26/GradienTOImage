@@ -1,0 +1,104 @@
+<html>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+	<head> </head>
+
+	<body>
+		<div class="gradientToImage">
+			<h1>Gradient To Image Converter</h1>
+			<div class="WorkBox">
+				<div id="myHtml"></div>
+				<h6>
+					Width:<span id="W">90vw</span> height:
+					<span id="H"> 50vh </span> background :
+					<span id="B">rgb(255, 104, 98)</span>
+					Gradient:
+					<span id="G"
+						>linear-gradient( 328deg, rgba(255, 104, 98, 1) 9%, rgba(114, 94,
+						217, 1) 50%, rgba(0, 212, 255, 1) 88%</span
+					>
+				</h6>
+			</div>
+			<div class="buttons">
+				<button id="btn_convert" class="btn btn-dark" onclick="download">
+					<span class="material-icons-outlined">
+						<img src="Download.png" />
+					</span>
+				</button>
+				<button id="add" class="btn btn-dark">
+					<span class="material-icons-outlined">
+						<img src="add.png" />
+					</span>
+				</button>
+			</div>
+			<br />
+			<div id="previewImg"></div>
+			<div class="inputsForAdd">
+				<input id="width" type="text" placeholder="width" />
+				<input id="height" type="text" placeholder="height" />
+
+				<input
+					id="bgcolor"
+					value="rgb(255, 104, 98)"
+					type="text"
+					placeholder="background Color"
+					onClick="this.select();"
+				/>
+				<input
+					id="gradient"
+					type="text"
+					onClick="this.select();"
+					value=" linear-gradient(328deg,rgba(255, 104, 98, 1) 9%,rgba(114, 94, 217, 1) 50%,rgba(0, 212, 255, 1) 88%"
+					placeholder="background gradient"
+				/>
+			</div>
+			<h4>
+				Get stylings from
+				<a href="https://cssgradient.io/" target="_">CSS Gradient</a>
+			</h4>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+		<script>
+			var add = document.getElementById("add");
+			var W = document.getElementById("W");
+			var H = document.getElementById("H");
+			var B = document.getElementById("B");
+			var G = document.getElementById("G");
+			add.addEventListener("click", download);
+			function download() {
+				var width = document.getElementById("width").value;
+				var height = document.getElementById("height").value;
+				var bgcolor = document.getElementById("bgcolor").value;
+				var gradient = document.getElementById("gradient").value;
+				document.getElementById("myHtml").style.width = width;
+				document.getElementById("myHtml").style.height = height;
+				document.getElementById("myHtml").style.background = bgcolor;
+				document.getElementById("myHtml").style.background = gradient;
+				//
+				console.log(width);
+				W.innerText = width;
+				H.innerText = height;
+				v.innerText = bgcolor;
+				G.innerText = gradient;
+			}
+			$(document).ready(function () {
+				$("#btn_convert").on("click", function () {
+					html2canvas(document.getElementById("myHtml"), {
+						allowTaint: true,
+						useCORS: true,
+					}).then(function (canvas) {
+						var anchorTag = document.createElement("a");
+						document.body.appendChild(anchorTag);
+						// document.getElementById("previewImg").appendChild(canvas);
+						anchorTag.download = "gradient.jpg";
+						anchorTag.href = canvas.toDataURL();
+						anchorTag.target = "_blank";
+						anchorTag.click();
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

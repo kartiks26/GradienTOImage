@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Mali&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kufam:ital@1&display=swap");
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body::-webkit-scrollbar {
+	display: none;
+}
+.gradientToImage {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+h1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Kufam", sans-serif;
+
+	margin-top: 25px;
+}
+.buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 25px;
+}
+button {
+	margin: 25px;
+	border-radius: 5px;
+	padding: 12px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+
+	background: rgba(255, 255, 255, 0.35);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#myHtml {
+	background-color: #f0f0f1;
+	color: #00cc65;
+	background: rgb(255, 104, 98);
+	background: linear-gradient(
+		328deg,
+		rgba(255, 104, 98, 1) 9%,
+		rgba(114, 94, 217, 1) 50%,
+		rgba(0, 212, 255, 1) 88%
+	);
+
+	height: 50vh;
+	width: 90vw;
+}
+input {
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 5px;
+	padding: 12px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.35);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	-webkit-backdrop-filter: blur(20px);
+	border-radius: 10px;
+	margin: 25px;
+}
+.inputsForAdd {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
